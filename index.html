@@ -4,34 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOP Project - Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="container-fluid">
-        <header id="header">
-            <h1>Rock Paper Scissors</h1>
-            <p>Play a game of rock paper scissors against your computer</p>
-            <p>The first player to score five (5) points wins the games</p>
-        </header>
-        <section id="round-section"></section>
-        <section id="game">
-            <div id="game-score">
-                <div id="player-score"></div>
-                <div id="computer-score"></div>
-            </div>
-            <div id="game-graphic">
-                <div class="card">
-                    <img src="" alt="Player Move">
-                </div>
-                <div class="card">
-                    <img src="" alt="Computer Move">
-                </div>
-            </div>
+        <section id="banner-section">
+            <p>Play a game of rock paper scissors against Computer</p>
+            <h2>The first player to score five (5) points wins the games</h2>
         </section>
-        <section id="control-section">
-            <div id="controls-panel">
-                <button id="rock" class="gameBtns" value="1">Rock</button>
-                <button id="paper" class="game-btns" value="2">Paper</button>
-                <button id="scissors" class="game-btns" value="3">Scissors</button>
+        <section id="game">
+            <div id="game-graphics">
+                <div class="card card-bg">
+                    <img src="img/rock.png" alt="Player Move">
+                </div>
+                <div class="card live-feed">
+                    <div id="round-section">
+                        <h2>ROUND</h2>
+                        <h2 id="round">#0</h2>
+                    </div>
+                    <div id="leader-board">
+                        <div id="player-score">
+                            <h3 id="playerScore">0</h3>
+                            <p>Player Score</p>
+                        </div>
+                        <div id="computer-score">
+                            <h3 id="playerScore">0</h3>
+                            <p>Computer Score</p>
+                        </div>
+                    </div>
+                    <div id="control-panel">
+                        <button id="rock" class="gameBtns" value="1">Rock</button>
+                        <button id="paper" class="game-btns" value="2">Paper</button>
+                        <button id="scissors" class="game-btns" value="3">Scissors</button>
+                    </div>
+                </div>
+                <div class="card card-bg">
+                    <img src="img/paper.png" alt="Computer Move">
+                </div>
             </div>
         </section>
         <footer id="footer-section">
