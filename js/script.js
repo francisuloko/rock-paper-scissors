@@ -74,10 +74,22 @@ function game(){
 }
 
 // Computer Move Function
-function computerMove(){
+function XcomputerMove(){ // Original Used in development
     return (Math.floor((Math.random() * 3)) + 1);
 }
 
+// Creating a equally random outcome - rock, paper, or scissors
+// Copied
+function computerMove() { // Credit - Rachel Moser (Github- rlmoser99)
+    const number = Math.floor(Math.random() * 1000);
+    if (number % 3 === 0) {
+            return 1;
+    }
+    if (number % 3 === 1) {
+            return 2;
+    }
+    return 3;
+}
 function playRound(player, computer){ // Play Round Function
     // Playing a 5 round game
     if(playerScore == 5 || computerScore == 5){
