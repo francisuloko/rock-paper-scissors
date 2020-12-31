@@ -10,40 +10,58 @@ let rock;
 let paper;
 let scissors;
 let result;
+let rounds = 0;
 let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
 let computerSelection;
-let photos = ["player.jpg", "rock.png", "paper.png", "scissors.png", "computer.jpg"];
+let photos = ["player.png", "rock.png", "paper.png", "scissors.png", "computer.png"];
 
 // Game controls
-let rockBtn = document.querySelector("#rock");
-let paperBtn = document.querySelector("#paper");
-let scissorsBtn = document.querySelector("#scissors");
+let rockBtn1 = document.querySelector("#rock");
+let paperBtn1 = document.querySelector("#paper");
+let scissorsBtn1 = document.querySelector("#scissors");
+let btnAll = document.querySelectorAll(".game-btns");
 
-// Set phots
-document.getElementById("playerImg").src = "../scissors.png";
-
-// document.getElementById("playerGraphics").src = photos[0];
+// Add phones
+document.getElementById("playerImg").src = "img/player.png";
+document.getElementById("computerImg").src = "img/computer.png";
 
 // Game functions
 function game(){
     // Playing a round of rock paper scissors
-    rockBtn.onclick = function(){
-        computerSelection = computerMove()
-        document.getElementById("computerGraphics").src = photos[computerSelection]
-        rock = playerSelection = rockBtn.value; // Getting Player Selectioin
-        result = playRound(playerSelection, computerSelection)
-    }
-    paperBtn.onclick = function(){
-        computerSelection = computerMove()
-        paper = playerSelection = paperBtn.value;
-        result = playRound(playerSelection, computerSelection)
-    }
-    scissorsBtn.onclick = function(){
-        computerSelection = computerMove()
-        scissors = playerSelection = scissorsBtn.value;
+    rockBtn1.onclick = function(){
+        document.getElementById("playerImg").src = "img/rock.png";
+        computerSelection = computerMove();
+        document.getElementById("computerImg").src = "img/" + photos[computerSelection];
+        rock = playerSelection = rockBtn1.value; // Getting Player Selectioin
+        console.log(playerSelection, computerSelection);
         result = playRound(playerSelection, computerSelection);
+        document.getElementById("outcome").textContent = `[${result}]`;
+        rounds++;
+        document.getElementById("round").textContent ="#" + rounds;
+    }
+    paperBtn1.onclick = function(){
+        document.getElementById("playerImg").src = "img/paper.png";
+        computerSelection = computerMove();
+        document.getElementById("computerImg").src = "img/" + photos[computerSelection];
+        paper = playerSelection = paperBtn1.value;
+        console.log(playerSelection, computerSelection);
+        result = playRound(playerSelection, computerSelection);
+        document.getElementById("outcome").textContent = `[${result}]`;
+        rounds++;
+        document.getElementById("round").textContent = "#" + rounds;
+    }
+    scissorsBtn1.onclick = function(){
+        document.getElementById("playerImg").src = "img/scissors.png";
+        computerSelection = computerMove();
+        document.getElementById("computerImg").src = "img/" + photos[computerSelection];
+        scissors = playerSelection = scissorsBtn1.value;
+        console.log(playerSelection, computerSelection);
+        result = playRound(playerSelection, computerSelection);
+        document.getElementById("outcome").textContent = `[${result}]`;
+        rounds++;
+        document.getElementById("round").textContent = "#" + rounds;
     }
 
     // Update Game Scores
@@ -64,7 +82,7 @@ function computerMove(){ // Used this function throughout development
 // Play Round Function
 function playRound(player, computer){
     // Playing a 5 round game
-    if(playerScore != 5 & computerScore != 5){
+    if(playerScore != 5 && computerScore != 5){
         
         // Game rules/logic
         if(player == computer){
@@ -76,16 +94,18 @@ function playRound(player, computer){
             
             // Update the Leader Board
             playerScore++;
-            document.getElementById("playerScore").textContent = "Player Score: " + playerScore;
+            document.getElementById("playerScore").textContent = playerScore;
+            console.log(playerScore)
             return "Win";
         } else {
             computerScore++;
-            document.getElementById("computerScore").textContent = "Computer Score: " + computerScore;
+            document.getElementById("computerScore").textContent = computerScore;
             return "Lose";
         }
     } else {
         return "Game Over"
     }
+    console.log(player, computer);
 }
 
 // Initialize Game Play
