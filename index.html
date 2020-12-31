@@ -11,43 +11,49 @@
     <div id="container-fluid">
         <section id="banner-section">
             <p>Play a game of rock paper scissors against Computer</p>
-            <h2>The first player to score five (5) points wins the games</h2>
+            <h2>The first player to score five (5) points wins the games</h2>      
         </section>
         <section id="game">
-            <div id="game-graphics">
-                <div class="card card-bg">
-                    <img id="playerImg" src="" alt="Player Profile">
-                </div>
-                <div class="card live-feed">
-                    <div id="round-section">
-                        <h2>ROUND</h2>
-                        <h2 id="round">#0</h2>
-                        <p id="outcome"></p>
+            <div>
+                <div id="game-graphics">
+                    <div class="card card-bg">
+                        <p>Player</p>
+                        <img id="playerImg" src="" alt="Player Profile">
                     </div>
-                    <div id="leader-board">
-                        <div id="player-score">
-                            <h3 id="playerScore">0</h3>
-                            <p>Player Score</p>
+                    <div class="card live-feed">
+                        <div id="round-section">
+                            <h2>ROUND</h2>
+                            <h2 id="round">#0</h2>
+                            <p id="outcome"></p>
+            
                         </div>
-                        <div id="computer-score">
-                            <h3 id="computerScore">0</h3>
-                            <p>Computer Score</p>
+                        <div id="leader-board">
+                            <div id="player-score">
+                                <h3 id="playerScore">0</h3>
+                                <p>Player Score</p>
+                            </div>
+                            <div id="computer-score">
+                                <h3 id="computerScore">0</h3>
+                                <p>Computer Score</p>
+                            </div>
+                        </div>
+                        <div id="control-panel">
+                            <button id="rock" class="game-btns" value="1">Rock</button>
+                            <button id="paper" class="game-btns" value="2">Paper</button>
+                            <button id="scissors" class="game-btns" value="3">Scissors</button>
                         </div>
                     </div>
-                    <div id="control-panel">
-                        <button id="rock" class="game-btns" value="1">Rock</button>
-                        <button id="paper" class="game-btns" value="2">Paper</button>
-                        <button id="scissors" class="game-btns" value="3">Scissors</button>
+                    <div class="card card-bg">
+                        <p>Computer</p>
+                        <img id="computerImg" src="" alt="Computer Profile">
                     </div>
-                </div>
-                <div class="card card-bg">
-                    <img id="computerImg" src="" alt="Computer Profile">
                 </div>
             </div>
+            <button onClick="window.location.reload(true)">Restart Game</button>
         </section>
         <footer id="footer-section">
-            <p>Francis Uloko &copy; 2020</p>
             <p>In fulfilment of The Odin Project Rock Paper Scissors Game</p>
+            <p>Francis Uloko &copy; 2020</p>
         </footer>
         <script src="js/script.js"></script>
 </body>

@@ -81,6 +81,7 @@ section, footer {
 }
 .card-bg {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #f7f7f7;
