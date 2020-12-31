@@ -57,13 +57,19 @@ function game(){
         rounds++;
         document.getElementById("round").textContent = "#" + rounds;
     }
-    
-    if(result == "You Win"){ // Update Game Scores
-        playerScore++;
-    } else if(result == "You Lose"){
-        computerScore++;
-    } else if(result == "Game Over"){
-        return result;
+
+    if(!result == "Tie"){
+        if( result == "You Win"){
+            playerScore++;
+        } else if ( result == "You Lose"){
+            computerScore++
+        }else {
+            if(playerScore > computerScore){
+                document.getElementById("outcome").textContent = "You beat computer";
+            }else {
+                document.getElementById("outcome").textContent = "The computer beat you";
+            }
+        }
     }
 }
 
@@ -74,7 +80,10 @@ function computerMove(){
 
 function playRound(player, computer){ // Play Round Function
     // Playing a 5 round game
-    if(playerScore != 5 && computerScore != 5){
+    if(playerScore == 5 || computerScore == 5){
+        return "Game Over"
+        document.getElementById("round").textContent = "Game Over";
+    } else {
         if(player == computer){ // Game rules/logic
             return "Tie Game";
         } else if (
@@ -83,15 +92,12 @@ function playRound(player, computer){ // Play Round Function
             (player == rock     & computer == scissors)) {
                 playerScore++; // Update the Leader Board
                 document.getElementById("playerScore").textContent = playerScore;
-                console.log(playerScore)
                 return "You Win";
         } else {
             computerScore++;
             document.getElementById("computerScore").textContent = computerScore;
             return "You Lose";
         }
-    } else {
-        return "Game Over"
     }
 }
 // Initialize game

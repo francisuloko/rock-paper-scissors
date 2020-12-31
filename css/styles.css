@@ -77,7 +77,8 @@ section, footer {
 .card {
     height: 350px;
     width: 250px;
-    /* padding: 10px; */
+    padding: 5px;
+    border: 1px solid #fff;
 }
 .card-bg {
     display: flex;
@@ -95,6 +96,11 @@ section, footer {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+#system {
+    margin: 5px auto;
+    padding: 5px;
+    /* border: 1px solid #fff; */
 }
 button {
     padding: 10px;
