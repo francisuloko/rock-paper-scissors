@@ -77,7 +77,7 @@ section, footer {
 .card {
     height: 350px;
     width: 250px;
-    padding: 10px;
+    /* padding: 10px; */
 }
 .card-bg {
     display: flex;

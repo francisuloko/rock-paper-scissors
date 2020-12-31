@@ -14,17 +14,24 @@ let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
 let computerSelection;
+let photos = ["player.jpg", "rock.png", "paper.png", "scissors.png", "computer.jpg"];
 
 // Game controls
 let rockBtn = document.querySelector("#rock");
 let paperBtn = document.querySelector("#paper");
 let scissorsBtn = document.querySelector("#scissors");
 
+// Set phots
+document.getElementById("playerImg").src = "../scissors.png";
+
+// document.getElementById("playerGraphics").src = photos[0];
+
 // Game functions
 function game(){
     // Playing a round of rock paper scissors
     rockBtn.onclick = function(){
         computerSelection = computerMove()
+        document.getElementById("computerGraphics").src = photos[computerSelection]
         rock = playerSelection = rockBtn.value; // Getting Player Selectioin
         result = playRound(playerSelection, computerSelection)
     }
