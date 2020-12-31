@@ -28,73 +28,58 @@ document.getElementById("computerImg").src = "img/computer.png";
 // Game functions
 function game(){
     rockBtn.onclick = function(){ // Playing a round of rock paper scissors
-        document.getElementById("playerImg").src = "img/rock.png";
-        computerSelection = computerMove();
-        document.getElementById("computerImg").src = "img/" + photos[computerSelection];
-        rock = playerSelection = rockBtn.value; // Getting Player Selectioin
-        result = playRound(playerSelection, computerSelection);
-        document.getElementById("outcome").textContent =  result;
-        rounds++;
-        document.getElementById("round").textContent ="#" + rounds;
+        if((playerScore != 5) && (computerScore != 5)){
+            computerSelection = computerMove();
+            document.getElementById("computerImg").src = "img/" + photos[computerSelection];
+            document.getElementById("playerImg").src = "img/rock.png";
+            rock = playerSelection = rockBtn.value; // Getting Player Selectioin
+            result = playRound(playerSelection, computerSelection);
+            document.getElementById("outcome").textContent =  result;
+            rounds++;
+            document.getElementById("round").textContent ="#" + rounds;
+        } else {
+            document.getElementById("outcome").textContent =  "Game Over";
+        }
     }
     paperBtn.onclick = function(){
-        document.getElementById("playerImg").src = "img/paper.png";
-        computerSelection = computerMove();
-        document.getElementById("computerImg").src = "img/" + photos[computerSelection];
-        paper = playerSelection = paperBtn.value;
-        result = playRound(playerSelection, computerSelection);
-        document.getElementById("outcome").textContent =  result;
-        rounds++;
-        document.getElementById("round").textContent = "#" + rounds;
+        if((playerScore != 5) && (computerScore != 5)){
+            computerSelection = computerMove();
+            document.getElementById("computerImg").src = "img/" + photos[computerSelection];
+            document.getElementById("playerImg").src = "img/paper.png";
+            paper = playerSelection = paperBtn.value;
+            result = playRound(playerSelection, computerSelection);
+            document.getElementById("outcome").textContent =  result;
+            rounds++;
+            document.getElementById("round").textContent = "#" + rounds;
+        } else {
+            document.getElementById("outcome").textContent =  "Game Over";
+        }
     }
     scissorsBtn.onclick = function(){
-        document.getElementById("playerImg").src = "img/scissors.png";
-        computerSelection = computerMove();
-        document.getElementById("computerImg").src = "img/" + photos[computerSelection];
-        scissors = playerSelection = scissorsBtn.value;
-        result = playRound(playerSelection, computerSelection);
-        document.getElementById("outcome").textContent = result;
-        rounds++;
-        document.getElementById("round").textContent = "#" + rounds;
-    }
-
-    if(!result == "Tie"){
-        if( result == "You Win"){
-            playerScore++;
-        } else if ( result == "You Lose"){
-            computerScore++
-        }else {
-            if(playerScore > computerScore){
-                document.getElementById("outcome").textContent = "You beat computer";
-            }else {
-                document.getElementById("outcome").textContent = "The computer beat you";
-            }
+        if((playerScore != 5) && (computerScore != 5)){
+            computerSelection = computerMove();
+            document.getElementById("computerImg").src = "img/" + photos[computerSelection];
+            document.getElementById("playerImg").src = "img/scissors.png";
+            scissors = playerSelection = scissorsBtn.value;
+            result = playRound(playerSelection, computerSelection);
+            document.getElementById("outcome").textContent = result;
+            rounds++;
+            document.getElementById("round").textContent = "#" + rounds;   
+        } else {
+            document.getElementById("outcome").textContent =  "Game Over";
         }
     }
 }
 
 // Computer Move Function
-function XcomputerMove(){ // Original Used in development
+function computerMove(){
     return (Math.floor((Math.random() * 3)) + 1);
 }
 
-// Creating a equally random outcome - rock, paper, or scissors
-// Copied
-function computerMove() { // Credit - Rachel Moser (Github- rlmoser99)
-    const number = Math.floor(Math.random() * 1000);
-    if (number % 3 === 0) {
-            return 1;
-    }
-    if (number % 3 === 1) {
-            return 2;
-    }
-    return 3;
-}
 function playRound(player, computer){ // Play Round Function
     // Playing a 5 round game
-    if(playerScore == 5 || computerScore == 5){
-        return "Game Over"
-        document.getElementById("round").textContent = "Game Over";
+    if((playerScore == 5) || (computerScore == 5)){
+        return "Game Over";
     } else {
         if(player == computer){ // Game rules/logic
             return "Tie Game";
