@@ -1,6 +1,6 @@
 // Script for a game of rock paper scissors
 // This game is written from the human person perpective
-// The the includes the following functins"
+// The game includes the following functions
 // game() to initialize play
 // computerMove() to get (random) computer selection
 // And playRound() to determine rounds and scores
